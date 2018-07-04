@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
@@ -50,6 +52,21 @@ public class Homepage extends AppCompatActivity {
             }
         });
         initData();
+
+        list_xiaoqu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                ImageView xiaoqu_detail = (ImageView)findViewById(R.id.xiaoqu_detail);
+                xiaoqu_detail.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent();
+                        intent.setClass(Homepage.this, CommunityDetail.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+        });
     }
 
     public  void initData() {

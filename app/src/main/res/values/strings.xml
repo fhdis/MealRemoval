@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MealRemoval</string>
+    <string name="numColumns">5</string><!--gridView 的行数-->
 </resources>
