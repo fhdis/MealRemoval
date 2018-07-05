@@ -41,11 +41,7 @@ public class CommunityDetail extends AppCompatActivity {
     private void initData() {
         mDatas=new ArrayList();
         List<CommunityHouseItemBean> listCommunityHouseItemBean= new ArrayList();
-       /* for(int j=0;j<8;j++){
-                CommunityHouseItemBean communityHouseItemBean =new CommunityHouseItemBean("12栋701");
-                listCommunityHouseItemBean.add(communityHouseItemBean);
-        }*/
-        for(int i=0;i<3;i++){
+        for(int i=0;i<5;i++){
             for(int j=0;j<8;j++){
                 android.util.Log.d("testa","j=="+j);
                 CommunityHouseItemBean communityHouseItemBean =new CommunityHouseItemBean("12栋701");
@@ -61,6 +57,7 @@ public class CommunityDetail extends AppCompatActivity {
 
     private void init() {
         lv = (ListView)findViewById(R.id.lv);
+        android.util.Log.d("testa","textview"+(mDatas == null));
         mLAdapter = new ListViewAdapter(mDatas, CommunityDetail.this);
         lv.setAdapter(mLAdapter);
     }

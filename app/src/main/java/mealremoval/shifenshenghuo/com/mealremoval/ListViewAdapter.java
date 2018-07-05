@@ -22,10 +22,9 @@ public class ListViewAdapter extends BaseAdapter {
     private GridViewAdapter gridViewAdapter;
     private List<CommunityHouseBean> mDatas;
 
-    public ListViewAdapter(List<CommunityHouseBean> mDatas, Context mContext) {
-        super();
-        //this.mList = mList;
-        mDatas = mDatas;
+    public ListViewAdapter(List<CommunityHouseBean> mDatasa, Context mContext) {
+       // super();
+        mDatas = mDatasa;
         this.mContext = mContext;
     }
 
@@ -69,32 +68,24 @@ public class ListViewAdapter extends BaseAdapter {
 
 
         if (this.mDatas != null) {
-
+            CommunityHouseBean communityHouseBean = mDatas.get(position);
             if (holder.gridView != null) {
-                //ArrayList<HashMap<String, Object>> arrayListForEveryGridView = this.mList.get(position);
-                List<CommunityHouseBean> temp = mDatas;
-                    for (int i = 0; i < temp.size(); i++) {
-                        List<CommunityHouseItemBean> list = temp.get(i).getCommunityHouseItemBeanList();
-                        if(list!=null){
-                            gridViewAdapter = new GridViewAdapter(mContext, list);
+                 android.util.Log.d("testa","gridView"+communityHouseBean.getCommunityHouseItemBeanList().size());
+                gridViewAdapter = new GridViewAdapter(mContext,communityHouseBean.getCommunityHouseItemBeanList() );
                             holder.gridView.setAdapter(gridViewAdapter);
                             setGridViewOnclik(holder.gridView, position);
                             //setGridViewHeight( holder.gridView,convertView);
-                        }
+                      //  }
                     }
-                }
-                /*for(int i = 0;i<temp.size();i++) {
-                    gridViewAdapter = new GridViewAdapter(mContext, temp.get(i));
-                    holder.gridView.setAdapter(gridViewAdapter);
-                    setGridViewOnclik(holder.gridView, position);
-                    //setGridViewHeight( holder.gridView,convertView);
-                }*/
+            if (holder.textView != null) {
+                android.util.Log.d("testa","textview"+communityHouseBean.getCommunityName());
+                holder.textView.setText(communityHouseBean.getCommunityName());
             }
-
+                }
 
         return convertView;
-
     }
+
     public void setGridViewOnclik(GridView gridView, final int parentPosition) {
         if (gridViewAdapter !=null){
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

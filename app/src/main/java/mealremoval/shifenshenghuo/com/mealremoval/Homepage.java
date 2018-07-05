@@ -56,7 +56,7 @@ public class Homepage extends AppCompatActivity {
         list_xiaoqu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                ImageView xiaoqu_detail = (ImageView)findViewById(R.id.xiaoqu_detail);
+                ImageView xiaoqu_detail = (ImageView)view.findViewById(R.id.xiaoqu_detail);
                 xiaoqu_detail.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

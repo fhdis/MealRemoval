@@ -1,6 +1,8 @@
 package mealremoval.shifenshenghuo.com.mealremoval;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,24 +21,24 @@ public class GridViewAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private List<CommunityHouseItemBean> mDatas;
 
-    public GridViewAdapter(Context mContext, List<CommunityHouseItemBean> mDatas) {
+    public GridViewAdapter(Context mContext, List<CommunityHouseItemBean> mDatasa) {
         this.mContext = mContext;
-        mDatas = mDatas;
+        mDatas = mDatasa;
         inflater = LayoutInflater.from(mContext);
     }
 
     @Override
     public int getCount() {
-        if (mList == null)
+        if (mDatas == null)
             return 0;
-        return this.mList.size();
+        return this.mDatas.size();
     }
 
     @Override
     public Object getItem(int position) {
-        if (mList == null)
+        if (mDatas == null)
             return null;
-        return this.mList.get(position);
+        return this.mDatas.get(position);
     }
 
     @Override
@@ -56,12 +58,28 @@ public class GridViewAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        if (mList != null) {
-            viewHolder.mTextView.setText(position + "");
-            if((position&1) == 1){
-               // viewHolder.mImageView.setImageResource(R.mipmap.wx);
-            }else{
-               // viewHolder.mImageView.setImageResource(R.mipmap.qq);
+        if (mDatas != null) {
+            viewHolder.mTextView.setText(mDatas.get(position).getHousenumber());
+            if((position==0)|(position==7)|(position==14)|(position==21)|(position==28)){
+                Resources resources=mContext.getResources();
+                Drawable drawable=resources.getDrawable(R.color.colorNeed);
+                viewHolder.mTextView.setBackgroundDrawable(drawable);
+            }else if((position==1)|(position==8)|(position==15)|(position==22)|(position==29)){
+                Resources resources=mContext.getResources();
+                Drawable drawable=resources.getDrawable(R.color.colorFinish);
+                viewHolder.mTextView.setBackgroundDrawable(drawable);
+            }else if((position==2)|(position==9)|(position==16)|(position==23)|(position==30)){
+                Resources resources=mContext.getResources();
+                Drawable drawable=resources.getDrawable(R.color.colorUndo);
+                viewHolder.mTextView.setBackgroundDrawable(drawable);
+            }else if((position==3)|(position==10)|(position==17)|(position==24)|(position==31)){
+                Resources resources=mContext.getResources();
+                Drawable drawable=resources.getDrawable(R.color.colorFinish);
+                viewHolder.mTextView.setBackgroundDrawable(drawable);
+            }else {
+                Resources resources=mContext.getResources();
+                Drawable drawable=resources.getDrawable(R.color.colorAlluser);
+                viewHolder.mTextView.setBackgroundDrawable(drawable);
             }
         }
 

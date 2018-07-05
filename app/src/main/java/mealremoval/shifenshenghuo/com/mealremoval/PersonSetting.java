@@ -26,7 +26,7 @@ public class PersonSetting extends AppCompatActivity {
                 finish();
             }
         });
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(PersonSetting.this,R.layout.homepage_xiaoqu_item,R.id.tv_xiaoqu_name,new String []{"张家港市杨舍镇帝景豪园小区(200户)","张家港市杨舍镇东方明珠(150户)","张家港市杨舍镇农联花苑(200户)"}
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(PersonSetting.this,R.layout.xiaoqu_item,R.id.item,new String []{"帝景豪园11栋，12栋，13栋，14栋，15栋，16栋","东方明珠11栋，12栋，13栋，14栋，15栋，16栋","农联花园11栋，12栋，13栋，14栋，15栋，16栋"}
         );
         list_xiaoqu.setAdapter(arrayAdapter);
     }
